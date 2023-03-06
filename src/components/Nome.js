@@ -8,5 +8,9 @@ function Nome({ aluno, idade }) {
 
 
 
+  
+
+
+
 
   
