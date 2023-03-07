@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [input, setInput] = useState('');
@@ -6,10 +6,28 @@ function App() {
     'Pagar a conta de luz',
     'Estudar React JS'
   ]);
+
+  useEffect(() => {
+    const tarefasStorage = localStorage.getItem('@tarefa');
+
+    if(tarefasStorage) {
+      setTarefas(JSON.parse(tarefasStorage))
+    }
+  }, []);
+
+
+  useEffect(()=>{
+    //alert('BEM VINDO AO SITE')
+    //alert('TESTE')
+      localStorage.setItem('@tarefa', JSON.stringify(tarefas))
+  }, [tarefas]);
  
   function handleRegister(e) {
     e.preventDefault();
     //alert('TESTE');  
+
+    setTarefas([...tarefas, input]);
+    setInput('');
   }
   
   return(
