@@ -22,6 +22,8 @@ function App() {
     //alert('TESTE')
       localStorage.setItem('@tarefa', JSON.stringify(tarefas))
   }, [tarefas]);
+  //toda vez que, o que estiver dentro do array, nesse caso "tarefas",
+  //sofrer alteração o useEffect() será executado!
  
   function handleRegister(e) {
     e.preventDefault();
